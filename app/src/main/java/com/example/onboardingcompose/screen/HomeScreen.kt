@@ -91,10 +91,7 @@ fun HomeScreen() { //Main screen, here is the place to work with the view
                     horizontalArrangement = Arrangement.Center){
 
 
-
                         val interactionSource = remember { MutableInteractionSource() }
-
-
                             Button(
                                 onClick = { /*TODO*/ println("This is a debug message")},
                                 modifier = Modifier
@@ -279,7 +276,14 @@ fun HomeScreen() { //Main screen, here is the place to work with the view
         },
     ){
         /*TODO*/
-        VerticalHorizontalScroll()
+        innerPadding ->
+        Column(
+            modifier = Modifier
+                .padding(innerPadding),
+            verticalArrangement = Arrangement.spacedBy(16.dp),
+        ) {
+            VerticalHorizontalScroll()
+        }
     }
     /*Box(
         modifier = Modifier.fillMaxSize(),
