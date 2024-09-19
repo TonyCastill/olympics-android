@@ -21,6 +21,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.shape.CircleShape
@@ -38,9 +39,15 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.outlined.Add
 import androidx.compose.material.icons.outlined.ArrowDropDown
+import androidx.compose.material.icons.outlined.ArrowForward
+import androidx.compose.material.icons.outlined.DateRange
 import androidx.compose.material.icons.outlined.ExitToApp
+import androidx.compose.material.icons.outlined.Face
 import androidx.compose.material.icons.outlined.Favorite
+import androidx.compose.material.icons.outlined.Home
+import androidx.compose.material.icons.outlined.List
 import androidx.compose.material.icons.outlined.MailOutline
+import androidx.compose.material.icons.outlined.Notifications
 import androidx.compose.material.icons.sharp.Favorite
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -76,15 +83,198 @@ fun HomeScreen() { //Main screen, here is the place to work with the view
     Scaffold (
         bottomBar = {
             BottomAppBar(
-                contentColor = Color.LightGray,
+                contentColor = Color.Black,
                 //contentColor = MaterialTheme.colorScheme.primary,
             ) {
-                Text(
-                    modifier = Modifier
-                        .fillMaxWidth(),
-                    textAlign = TextAlign.Center,
-                    text = "Bottom app bar",
-                )
+                Row( modifier = Modifier
+                    .fillMaxWidth(),
+                    horizontalArrangement = Arrangement.Center){
+
+
+
+                        val interactionSource = remember { MutableInteractionSource() }
+
+
+                            Button(
+                                onClick = { /*TODO*/ println("This is a debug message")},
+                                modifier = Modifier
+
+                                    .hoverable(interactionSource = interactionSource)
+                                    .focusable(interactionSource = interactionSource)
+                                    .clip(shape = RoundedCornerShape(10.dp)),
+                                colors = ButtonDefaults.buttonColors(
+                                    backgroundColor = Color.Transparent
+                                )
+                            ) {
+
+
+                                Icon(
+                                    imageVector = Icons.Outlined.Home,
+                                    contentDescription = "Favorite Icon",
+                                    tint = Color.White,
+                                    modifier=Modifier.size(20.dp)
+
+                                )
+
+
+
+
+                            }
+
+                    Button(
+                        onClick = { /*TODO*/ println("This is a debug message")},
+                        modifier = Modifier
+
+                            .hoverable(interactionSource = interactionSource)
+                            .focusable(interactionSource = interactionSource)
+                            .clip(shape = RoundedCornerShape(10.dp)),
+                        colors = ButtonDefaults.buttonColors(
+                            backgroundColor = Color.Transparent
+                        )
+                    ) {
+
+
+                        Icon(
+                            imageVector = Icons.Outlined.DateRange,
+                            contentDescription = "Favorite Icon",
+                            tint = Color.White,
+                            modifier=Modifier.size(20.dp)
+
+                        )
+
+
+
+
+                    }
+                    Button(
+                        onClick = { /*TODO*/ println("This is a debug message")},
+                        modifier = Modifier
+                            .hoverable(interactionSource = interactionSource)
+                            .focusable(interactionSource = interactionSource)
+                            .clip(shape = RoundedCornerShape(10.dp)),
+                        colors = ButtonDefaults.buttonColors(
+                            backgroundColor = Color.Transparent
+                        )
+                    ) {
+
+
+                        Icon(
+                            imageVector = Icons.Outlined.Face,
+                            contentDescription = "Favorite Icon",
+                            tint = Color.White,
+                            modifier=Modifier.size(20.dp)
+
+                        )
+
+
+
+
+                    }
+
+                    Button(
+                        onClick = { /*TODO*/ println("This is a debug message")},
+                        modifier = Modifier
+
+                            .hoverable(interactionSource = interactionSource)
+                            .focusable(interactionSource = interactionSource)
+                            .clip(shape = RoundedCornerShape(10.dp)),
+                        colors = ButtonDefaults.buttonColors(
+                            backgroundColor = Color.Transparent
+                        )
+                    ) {
+
+
+                        Icon(
+                            imageVector = Icons.Outlined.Notifications,
+                            contentDescription = "Favorite Icon",
+                            tint = Color.White,
+                            modifier=Modifier.size(20.dp)
+
+                        )
+
+
+
+
+                    }
+
+                    Button(
+                        onClick = { /*TODO*/ println("This is a debug message")},
+                        modifier = Modifier
+
+                            .hoverable(interactionSource = interactionSource)
+                            .focusable(interactionSource = interactionSource)
+                            .clip(shape = RoundedCornerShape(10.dp)),
+                        colors = ButtonDefaults.buttonColors(
+                            backgroundColor = Color.Transparent
+                        )
+                    ) {
+
+
+                        Icon(
+                            imageVector = Icons.Outlined.ArrowForward,
+                            contentDescription = "Favorite Icon",
+                            tint = Color.White,
+                            modifier=Modifier.size(20.dp)
+
+                        )
+
+
+
+
+                    }
+                    Button(
+                        onClick = { /*TODO*/ println("This is a debug message")},
+                        modifier = Modifier
+                            .hoverable(interactionSource = interactionSource)
+                            .focusable(interactionSource = interactionSource)
+                            .clip(shape = RoundedCornerShape(10.dp)),
+                        colors = ButtonDefaults.buttonColors(
+                            backgroundColor = Color.Transparent
+                        )
+                    ) {
+
+
+                        Icon(
+                            imageVector = Icons.Outlined.List,
+                            contentDescription = "Favorite Icon",
+                            tint = Color.White,
+                            modifier=Modifier.size(20.dp)
+
+                        )
+
+
+
+
+                    }
+
+
+
+
+
+
+                        /*Row(
+                            modifier=Modifier
+                                .align(Alignment.Center)
+                        ){
+                            Icon(
+                                imageVector = Icons.Outlined.Favorite,
+                                contentDescription = "Favorite Icon",
+                                tint = Color.White
+
+                            )
+                            Icon(
+                                imageVector = Icons.Outlined.ArrowDropDown,
+                                contentDescription = "Favorite Icon",
+                                tint = Color.White
+                            )
+                        }*/
+
+
+
+
+
+                }
+
             }
         },
     ){
@@ -170,7 +360,8 @@ fun VerticalHorizontalScroll(){ // Main function to draw everything, inside the 
 
                         Button(
                             onClick = { /*TODO*/ println("This is a debug message")},
-                            modifier = Modifier.fillMaxSize()
+                            modifier = Modifier
+                                .fillMaxSize()
                                 .hoverable(interactionSource = interactionSource)
                                 .focusable(interactionSource = interactionSource),
                             colors = ButtonDefaults.buttonColors(
@@ -221,10 +412,18 @@ fun VerticalHorizontalScroll(){ // Main function to draw everything, inside the 
                                 .border(2.dp, Color.White),
 
                             ){
-                            Row(
-                                modifier=Modifier
-                                    .align(Alignment.Center)
-                            ){
+                            val interactionSource = remember { MutableInteractionSource() }
+
+                            Button(
+                                onClick = { /*TODO*/ println("This is a debug message")},
+                                modifier = Modifier
+                                    .fillMaxSize()
+                                    .hoverable(interactionSource = interactionSource)
+                                    .focusable(interactionSource = interactionSource),
+                                colors = ButtonDefaults.buttonColors(
+                                    backgroundColor = Color.Transparent
+                                )
+                            ) {
                                 Icon(
                                     imageVector = Icons.Outlined.Add,
                                     contentDescription = "Favorite Icon",
@@ -244,10 +443,18 @@ fun VerticalHorizontalScroll(){ // Main function to draw everything, inside the 
                                 .border(2.dp, Color.White),
 
                             ){
-                            Row(
-                                modifier=Modifier
-                                    .align(Alignment.Center)
-                            ){
+                            val interactionSource = remember { MutableInteractionSource() }
+
+                            Button(
+                                onClick = { /*TODO*/ println("This is a debug message")},
+                                modifier = Modifier
+                                    .fillMaxSize()
+                                    .hoverable(interactionSource = interactionSource)
+                                    .focusable(interactionSource = interactionSource),
+                                colors = ButtonDefaults.buttonColors(
+                                    backgroundColor = Color.Transparent
+                                )
+                            ) {
                                 Icon(
                                     imageVector = ImageVector.vectorResource(id =R.drawable.updown),
                                     contentDescription = "Favorite Icon",
@@ -266,10 +473,18 @@ fun VerticalHorizontalScroll(){ // Main function to draw everything, inside the 
                                 .border(2.dp, Color.White),
 
                             ){
-                            Row(
-                                modifier=Modifier
-                                    .align(Alignment.Center)
-                            ){
+                            val interactionSource = remember { MutableInteractionSource() }
+
+                            Button(
+                                onClick = { /*TODO*/ println("This is a debug message")},
+                                modifier = Modifier
+                                    .fillMaxSize()
+                                    .hoverable(interactionSource = interactionSource)
+                                    .focusable(interactionSource = interactionSource),
+                                colors = ButtonDefaults.buttonColors(
+                                    backgroundColor = Color.Transparent
+                                )
+                            ) {
                                 Icon(
                                     imageVector = ImageVector.vectorResource(id =R.drawable.configuration),
                                     contentDescription = "Favorite Icon",
@@ -310,10 +525,10 @@ fun VerticalHorizontalScroll(){ // Main function to draw everything, inside the 
                 ){
                     Text(text = "#",
                         fontSize = 20.sp,
-                        color = Color.Black,
+                        color = Color.White,
                         modifier = Modifier.padding(0.dp,0.dp,10.dp,0.dp))
                     Text(text = "NPCs",
-                        color = Color.Black,
+                        color = Color.White,
                         fontSize = 20.sp,)
                 }
 
@@ -355,24 +570,17 @@ fun VerticalHorizontalScroll(){ // Main function to draw everything, inside the 
                             .size(20.dp) // Adjust the size as needed
                             .fillMaxWidth(0.25f)
                     )
+                    Spacer(modifier = Modifier.width(40.dp))
                 }
 
             }
         }
 
-        LazyColumn { //You can scroll them to the bottom
-            item {
-                Text(text ="Recent list",
-                    color = Color.Black,
-                    fontSize = 18.sp,
-                    fontWeight = FontWeight.Bold,
-                    modifier = Modifier
-                        .padding(10.dp)
-                )
-            }
+        LazyColumn(modifier=Modifier.fillMaxHeight(1f)){ //You can scroll them to the bottom
+
 
             //Horizontal Scroll View
-            item{
+            /*item{
                 LazyRow {
                     items(count=10){ //put items on it
                         Card( // Pattern that applies to all the 10 items
@@ -451,17 +659,9 @@ fun VerticalHorizontalScroll(){ // Main function to draw everything, inside the 
                         }
                     }
                 }
-            }
-            item {
-                Text(text ="Items list",
-                    color = Color.Black,
-                    fontSize = 18.sp,
-                    fontWeight = FontWeight.Bold,
-                    modifier = Modifier
-                        .padding(10.dp)
-                )
-            }
-            items(count = 10){
+            }*/
+            
+            items(count = 9){
                 Card( // Pattern that applies to all the 10 items
                     modifier = Modifier
                         //.width(110.dp)
@@ -469,9 +669,9 @@ fun VerticalHorizontalScroll(){ // Main function to draw everything, inside the 
                         .padding(10.dp, 5.dp, 5.dp, 0.dp)
                         .clip(RoundedCornerShape(10.dp)) // Like border radius
                         .fillMaxWidth()
-                        .background(Color.White),
+                        .background(Color.Black),
 
-                    elevation = 6.dp // adds a shadow
+                    //elevation = 6.dp // adds a shadow
 
                 ) {
                     Column(
@@ -479,7 +679,99 @@ fun VerticalHorizontalScroll(){ // Main function to draw everything, inside the 
                             .padding(10.dp)
 
                     ) {
-                        Row(
+                        Row{
+                            Row(
+                                modifier= Modifier
+                                    .fillMaxHeight()
+                                    .fillMaxWidth(0.5f),
+                                verticalAlignment = Alignment.CenterVertically
+                            ){
+
+                                Text(text = "$it",
+                                    fontSize = 20.sp,
+                                    color = Color.White,
+                                    modifier = Modifier.padding(0.dp,0.dp,10.dp,0.dp))
+
+                                Image(
+                                    painter = painterResource(id = R.drawable.flag_of_mexico) ,
+                                    contentDescription = "Custom SVG Icon",
+                                    modifier = Modifier
+                                        .padding(0.dp, 0.dp, 10.dp, 0.dp)
+                                        .size(30.dp) // Adjust the size as needed
+
+
+                                )
+
+                                Text(text = "MEX",
+                                    color = Color.White,
+                                    fontSize = 20.sp,)
+                            }
+
+                            Row(
+                                modifier= Modifier
+                                    .fillMaxHeight()
+                                    .fillMaxWidth(),
+                                verticalAlignment = Alignment.CenterVertically,
+                                horizontalArrangement = Arrangement.SpaceEvenly
+                            ){
+
+                                Text(
+                                    modifier = Modifier
+                                        .size(20.dp) // Adjust the size as needed
+                                        .fillMaxWidth(0.20f),
+                                    text="1"
+                                )
+                                Text(
+                                    modifier = Modifier
+                                        .size(20.dp) // Adjust the size as needed
+                                        .fillMaxWidth(0.20f),
+                                    text="2"
+                                )
+
+                                Text(
+                                    modifier = Modifier
+                                        .size(20.dp) // Adjust the size as needed
+                                        .fillMaxWidth(0.20f),
+                                    text="3"
+                                )
+                                Text(
+                                    modifier = Modifier
+                                        .size(20.dp) // Adjust the size as needed
+                                        .fillMaxWidth(0.20f),
+                                    text="6"
+                                )
+
+                                val interactionSource = remember { MutableInteractionSource() }
+
+                                Button(
+                                    onClick = { /*TODO*/ println("This is a debug message")},
+                                    modifier = Modifier
+                                        .width(40.dp)
+                                        //.fillMaxWidth(0.20f)
+                                        .hoverable(interactionSource = interactionSource)
+                                        .focusable(interactionSource = interactionSource),
+                                    colors = ButtonDefaults.buttonColors(
+                                        backgroundColor = Color.Transparent
+                                    )
+                                ) {
+                                    Icon(
+                                        imageVector = Icons.Outlined.Add,
+                                        contentDescription = "Favorite Icon",
+                                        tint = Color.White,
+                                        modifier = Modifier
+                                            .size(10.dp)
+
+
+                                        )
+                                }
+                            }
+
+                        }
+
+
+
+
+                        /*Row(
                             verticalAlignment = Alignment.CenterVertically,
                             modifier = Modifier
 
@@ -496,7 +788,7 @@ fun VerticalHorizontalScroll(){ // Main function to draw everything, inside the 
                             Column {
                                 Text(
                                     text="Test",
-                                    color=Color.Black,
+                                    color=Color.White,
                                     fontWeight = FontWeight.Bold,
                                     fontSize = 16.sp
                                 )
@@ -505,7 +797,7 @@ fun VerticalHorizontalScroll(){ // Main function to draw everything, inside the 
                                 )
                             }
 
-                        }
+                        }*/
                     }
                 }
             }
